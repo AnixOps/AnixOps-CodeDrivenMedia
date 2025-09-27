@@ -66,6 +66,12 @@ npm run dev
 npm run build
 ```
 
-## 📄 许可证
+## � 持续集成渲染
+
+- 推送到 `production` 分支后，GitHub Actions 会自动运行 **Production Video Build** 工作流。
+- 工作流会安装 Remotion 所需的系统依赖，执行类型检查和代码规范检查，并渲染 `BrandAnimation`、`Wainting-1`、`TodoListPromo` 三个组合。
+- 渲染完成的视频会作为构建产物（artifact）上传，可在 Actions 运行详情页直接下载。
+
+## �📄 许可证
 
 MIT License - 详见 [LICENSE](./LICENSE) 文件

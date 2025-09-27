@@ -1,0 +1,73 @@
+name: Production Video Build
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  render:
+    name: Render Remotion videos
+    runs-on: ubuntu-latest
+    env:
+      NODE_ENV: production
+      REMOTION_CONCURRENCY: 2
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install system libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            ffmpeg \
+            libasound2 \
+            libatk-bridge2.0-0 \
+            libatk1.0-0 \
+            libcups2 \
+            libdrm2 \
+            libgbm1 \
+            libglib2.0-0 \
+            libgtk-3-0 \
+            libnss3 \
+            libnspr4 \
+            libx11-xcb1 \
+            libxcomposite1 \
+            libxdamage1 \
+            libxfixes3 \
+            libxkbcommon0 \
+            libxrandr2 \
+            libpango-1.0-0 \
+            libpangocairo-1.0-0 \
+            fonts-noto-color-emoji
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run type checks
+        run: npm run type-check
+
+      - name: Lint source code
+        run: npm run lint
+
+      - name: Render video compositions
+        run: |
+          mkdir -p output/github
+          npx remotion render src/index.tsx BrandAnimation output/github/BrandAnimation.mp4 --codec=h264 --crf=18 --overwrite
+          npx remotion render src/index.tsx Wainting-1 output/github/Wainting-1.mp4 --codec=h264 --crf=18 --overwrite
+          npx remotion render src/index.tsx TodoListPromo output/github/TodoListPromo.mp4 --codec=h264 --crf=18 --overwrite
+
+      - name: Upload rendered videos
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-videos-${{ github.sha }}
+          path: output/github
+          if-no-files-found: error
+          retention-days: 14
