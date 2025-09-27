@@ -6,7 +6,7 @@ const { getCudaDeviceInfo, getOptimalCudaConfig } = require('./cuda-config');
  * TodoList宣传视频生成脚本
  * 
  * 使用方法:
- * node scripts/generate-todolist-promo.js
+ * node scripts/generate-todolist-promo-en.js
  * 
  * 选项:
  * --preview: 仅预览，不渲染完整视频
@@ -69,7 +69,7 @@ const selectedQuality = qualityConfigs[quality] || qualityConfigs.high;
 try {
   // 视频配置
   const videoConfig = {
-    composition: 'TodoListPromo',
+    composition: 'TodoListPromoEn',
     width: 1920,
     height: 1080,
     fps: selectedQuality.fps,

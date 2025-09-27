@@ -330,76 +330,161 @@ const Scene2Solution: React.FC = () => {
                     }} />
                 </div>
 
-                {/* 增强标题 */}
+                {/* 苹果风格开场标题 */}
                 <div style={{
-                    color: '#ffffff',
-                    fontSize: '82px',
-                    fontWeight: 'bold',
-                    textAlign: 'center',
-                    opacity: textOpacity(fps * 0.5),
-                    transform: `translateY(${interpolate(frame, [fps * 0.5, fps * 1.5], [50, 0], { easing: Easing.out(Easing.cubic) })}px) scale(${titleScale})`,
-                    textShadow: `
-                        0 4px 8px rgba(0,0,0,0.5),
-                        0 0 ${30 + neonPulse * 20}px rgba(255,255,255,0.6),
-                        0 0 ${50 + neonPulse * 30}px rgba(76, 110, 245, 0.4)
-                    `,
-                    background: 'linear-gradient(135deg, #ffffff, #e0f2fe)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    letterSpacing: '0.02em'
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '20px'
                 }}>
-                    隆重推出: <strong style={{ 
-                        background: 'linear-gradient(135deg, #4c6ef5, #845ef7)',
+                    {/* 苹果式前导词 */}
+                    <div style={{
+                        color: '#ffffff',
+                        fontSize: '48px',
+                        fontWeight: '300',
+                        textAlign: 'center',
+                        opacity: textOpacity(fps * 0.3),
+                        transform: `translateY(${interpolate(frame, [fps * 0.3, fps * 0.8], [30, 0], { easing: Easing.out(Easing.cubic) })}px)`,
+                        textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase'
+                    }}>
+                        今天，我们很高兴向大家介绍
+                    </div>
+                    
+                    {/* 主标题 - 苹果风格 */}
+                    <div style={{
+                        color: '#ffffff',
+                        fontSize: '96px',
+                        fontWeight: '700',
+                        textAlign: 'center',
+                        opacity: textOpacity(fps * 0.5),
+                        transform: `translateY(${interpolate(frame, [fps * 0.5, fps * 1.5], [50, 0], { easing: Easing.out(Easing.cubic) })}px) scale(${titleScale})`,
+                        textShadow: `
+                            0 4px 8px rgba(0,0,0,0.5),
+                            0 0 ${30 + neonPulse * 20}px rgba(255,255,255,0.6),
+                            0 0 ${80 + neonPulse * 40}px rgba(76, 110, 245, 0.5)
+                        `,
+                        background: 'linear-gradient(135deg, #ffffff 0%, #e0f2fe 50%, #ffffff 100%)',
                         backgroundClip: 'text',
                         WebkitBackgroundClip: 'text',
- 
-                    }}>AnixOps-TodoList</strong>
+                        letterSpacing: '-0.02em',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
+                    }}>
+                        AnixOps TodoList
+                    </div>
+                    
+                    {/* 苹果式产品定位 */}
+                    <div style={{
+                        color: '#e8f4fd',
+                        fontSize: '42px',
+                        fontWeight: '400',
+                        textAlign: 'center',
+                        opacity: textOpacity(fps * 0.8),
+                        transform: `translateY(${interpolate(frame, [fps * 0.8, fps * 1.3], [30, 0], { easing: Easing.out(Easing.cubic) })}px)`,
+                        textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                        letterSpacing: '0.01em',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
+                    }}>
+                        重新定义任务管理
+                    </div>
                 </div>
 
-                {/* 增强副标题 */}
+                {/* 苹果风格产品描述 */}
                 <div style={{
-                    color: '#e8f4fd',
-                    fontSize: '36px',
-                    textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '15px',
                     opacity: textOpacity(fps * 1),
-                    textShadow: `
-                        0 2px 4px rgba(0,0,0,0.3),
-                        0 0 ${25 + neonPulse * 15}px rgba(135, 206, 250, 0.7)
-                    `,
-                    transform: `translateY(${subtitleWave}px)`,
-                    fontWeight: '500',
-                    letterSpacing: '0.05em'
+                    transform: `translateY(${subtitleWave}px)`
                 }}>
-                    让任务管理变得 <span style={{ 
+                    <div style={{
+                        color: '#e8f4fd',
+                        fontSize: '38px',
+                        textAlign: 'center',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                        fontWeight: '300',
+                        letterSpacing: '0.02em',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif',
+                        lineHeight: '1.3'
+                    }}>
+                        每一个细节，都为了让您的工作
+                    </div>
+                    <div style={{
                         color: '#fbbf24',
-                        textShadow: `0 0 ${20 + neonPulse * 10}px rgba(251, 191, 36, 0.8)`
-                    }}>简单高效</span>
+                        fontSize: '44px',
+                        textAlign: 'center',
+                        textShadow: `0 0 ${20 + neonPulse * 10}px rgba(251, 191, 36, 0.8)`,
+                        fontWeight: '600',
+                        letterSpacing: '-0.01em',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
+                    }}>
+                        更加专注、高效、优雅
+                    </div>
                 </div>
 
-                {/* 特性标签 */}
+                {/* 苹果风格产品亮点 */}
                 <Sequence from={fps * 1.5}>
                     <div style={{
                         display: 'flex',
-                        gap: '20px',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: '25px',
                         opacity: textOpacity(fps * 1.5),
                         transform: `translateY(${interpolate(frame, [fps * 1.5, fps * 2.5], [30, 0], { easing: Easing.out(Easing.cubic) })}px)`
                     }}>
-                        {['🚀 快速', '🎯 专注', '💎 精美'].map((tag, i) => (
-                            <div key={i} style={{
-                                padding: '12px 24px',
-                                background: 'rgba(255,255,255,0.15)',
-                                borderRadius: '25px',
-                                color: '#fff',
-                                fontSize: '18px',
-                                fontWeight: '600',
-                                border: '1px solid rgba(255,255,255,0.2)',
-                                backdropFilter: 'blur(10px)',
-                                boxShadow: `0 8px 20px rgba(0,0,0,0.2), 0 0 ${15 + Math.sin((frame + i * 20) / 12) * 10}px rgba(255,255,255,0.3)`,
-                                transform: `translateY(${Math.sin((frame + i * 30) / 20) * 3}px) scale(${1 + Math.sin((frame + i * 15) / 18) * 0.02})`
-                            }}>
-                                {tag}
-                            </div>
-                        ))}
+                        {/* 核心特性展示 */}
+                        <div style={{
+                            display: 'flex',
+                            gap: '30px',
+                            marginTop: '20px'
+                        }}>
+                            {[
+                                { icon: '⚡', title: '闪电般快速', desc: '毫秒级响应' },
+                                { icon: '🎯', title: '专注驱动', desc: '零干扰设计' },
+                                { icon: '✨', title: '优雅体验', desc: '每个像素都完美' }
+                            ].map((feature, i) => (
+                                <div key={i} style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    padding: '20px 25px',
+                                    background: 'rgba(255,255,255,0.12)',
+                                    borderRadius: '20px',
+                                    color: '#fff',
+                                    border: '1px solid rgba(255,255,255,0.25)',
+                                    backdropFilter: 'blur(20px)',
+                                    boxShadow: `
+                                        0 12px 30px rgba(0,0,0,0.3), 
+                                        0 0 ${20 + Math.sin((frame + i * 25) / 15) * 15}px rgba(255,255,255,0.4),
+                                        inset 0 1px 0 rgba(255,255,255,0.3)
+                                    `,
+                                    transform: `translateY(${Math.sin((frame + i * 30) / 20) * 4}px) scale(${1 + Math.sin((frame + i * 20) / 18) * 0.03})`,
+                                    width: '200px'
+                                }}>
+                                    <div style={{
+                                        fontSize: '40px',
+                                        marginBottom: '8px',
+                                        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
+                                    }}>{feature.icon}</div>
+                                    <div style={{
+                                        fontSize: '22px',
+                                        fontWeight: '600',
+                                        marginBottom: '4px',
+                                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif',
+                                        textAlign: 'center'
+                                    }}>{feature.title}</div>
+                                    <div style={{
+                                        fontSize: '16px',
+                                        opacity: 0.8,
+                                        fontWeight: '400',
+                                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif',
+                                        textAlign: 'center'
+                                    }}>{feature.desc}</div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </Sequence>
             </AbsoluteFill>
@@ -616,17 +701,243 @@ const Scene3Features: React.FC = () => {
     );
 };
 
+// --- 苹果风格产品特写演示场景 --- //
+const AppleStyleProductDemo: React.FC = () => {
+    const frame = useCurrentFrame();
+    const { fps } = useVideoConfig();
+    
+    // 苹果风格动画参数
+    const elegantScale = spring({
+        frame: frame - 30,
+        fps,
+        config: { damping: 20, stiffness: 60, mass: 1.5 }
+    });
+    
+    const floatingMotion = Math.sin(frame / 40) * 8;
+    const breathingGlow = 0.7 + Math.sin(frame / 25) * 0.3;
+    const rotationAngle = interpolate(frame, [0, fps * 8], [0, 360], { 
+        easing: Easing.bezier(0.4, 0, 0.2, 1) 
+    });
 
-// --- 场景4：跨平台与高级特性 --- //
+    return (
+        <AbsoluteFill style={{
+            background: `
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15), transparent 70%),
+                radial-gradient(circle at 70% 70%, rgba(99, 102, 241, 0.2), transparent 60%),
+                linear-gradient(135deg, #f8fafc, #e2e8f0, #cbd5e1)
+            `,
+        }}>
+            {/* 苹果风格背景光效 */}
+            <div style={{
+                position: 'absolute',
+                inset: 0,
+                background: `conic-gradient(from ${rotationAngle}deg at 50% 50%, transparent, rgba(255,255,255,0.1), transparent, rgba(99,102,241,0.08), transparent)`,
+                opacity: breathingGlow * 0.6
+            }} />
+            
+            {/* 主要内容区域 */}
+            <AbsoluteFill style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                gap: '40px'
+            }}>
+                {/* 苹果风格主标题 */}
+                <div style={{
+                    textAlign: 'center',
+                    opacity: interpolate(frame, [0, 60], [0, 1], { easing: Easing.out(Easing.cubic) }),
+                    transform: `translateY(${interpolate(frame, [0, 60], [30, 0], { easing: Easing.out(Easing.cubic) })}px)`
+                }}>
+                    <div style={{
+                        fontSize: '72px',
+                        fontWeight: '700',
+                        color: '#1e293b',
+                        marginBottom: '20px',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif',
+                        letterSpacing: '-0.02em'
+                    }}>
+                        重新想象
+                    </div>
+                    <div style={{
+                        fontSize: '48px',
+                        fontWeight: '300',
+                        color: '#475569',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif',
+                        letterSpacing: '0.02em'
+                    }}>
+                        任务管理的无限可能
+                    </div>
+                </div>
+
+                {/* 苹果风格产品展示 */}
+                <div style={{
+                    position: 'relative',
+                    transform: `scale(${elegantScale}) translateY(${floatingMotion}px)`,
+                    opacity: interpolate(frame, [60, 120], [0, 1], { easing: Easing.out(Easing.cubic) })
+                }}>
+                    {/* 主产品界面 */}
+                    <div style={{
+                        width: '600px',
+                        height: '400px',
+                        background: 'linear-gradient(145deg, #ffffff, #f8fafc)',
+                        borderRadius: '24px',
+                        padding: '40px',
+                        boxShadow: `
+                            0 40px 80px rgba(15, 23, 42, 0.25),
+                            0 0 ${60 + breathingGlow * 40}px rgba(255, 255, 255, 0.8),
+                            inset 0 1px 0 rgba(255, 255, 255, 0.9)
+                        `,
+                        border: '1px solid rgba(255, 255, 255, 0.5)',
+                        position: 'relative'
+                    }}>
+                        {/* 界面内容 */}
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                            justifyContent: 'space-between'
+                        }}>
+                            {/* 顶部标题栏 */}
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                marginBottom: '30px'
+                            }}>
+                                <div style={{
+                                    fontSize: '32px',
+                                    fontWeight: '600',
+                                    color: '#1e293b',
+                                    fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
+                                }}>
+                                    今日任务
+                                </div>
+                                <div style={{
+                                    fontSize: '18px',
+                                    color: '#64748b',
+                                    padding: '8px 16px',
+                                    background: 'rgba(99, 102, 241, 0.1)',
+                                    borderRadius: '20px',
+                                    fontWeight: '500'
+                                }}>
+                                    5 项待办
+                                </div>
+                            </div>
+
+                            {/* 任务列表 */}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: 1 }}>
+                                {[
+                                    { text: '完成产品演示视频', status: 'completed', delay: 120 },
+                                    { text: '优化用户界面设计', status: 'active', delay: 150 },
+                                    { text: '准备发布会材料', status: 'pending', delay: 180 }
+                                ].map((task, i) => (
+                                    <div key={i} style={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        padding: '16px 20px',
+                                        background: task.status === 'completed' ? 
+                                            'rgba(34, 197, 94, 0.1)' : 
+                                            task.status === 'active' ? 
+                                            'rgba(99, 102, 241, 0.1)' : 
+                                            'rgba(148, 163, 184, 0.1)',
+                                        borderRadius: '16px',
+                                        border: `1px solid ${
+                                            task.status === 'completed' ? 'rgba(34, 197, 94, 0.2)' : 
+                                            task.status === 'active' ? 'rgba(99, 102, 241, 0.2)' : 
+                                            'rgba(148, 163, 184, 0.2)'
+                                        }`,
+                                        opacity: interpolate(frame, [task.delay, task.delay + 30], [0, 1]),
+                                        transform: `translateX(${interpolate(frame, [task.delay, task.delay + 30], [-20, 0])}px)`,
+                                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)'
+                                    }}>
+                                        <div style={{
+                                            fontSize: '24px',
+                                            marginRight: '16px',
+                                            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
+                                        }}>
+                                            {task.status === 'completed' ? '✅' : 
+                                             task.status === 'active' ? '🔄' : '⭕'}
+                                        </div>
+                                        <div style={{
+                                            fontSize: '18px',
+                                            color: '#334155',
+                                            fontWeight: '500',
+                                            textDecoration: task.status === 'completed' ? 'line-through' : 'none',
+                                            opacity: task.status === 'completed' ? 0.7 : 1
+                                        }}>
+                                            {task.text}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* 产品光环效果 */}
+                        {[...Array(2)].map((_, i) => (
+                            <div key={i} style={{
+                                position: 'absolute',
+                                inset: `-${30 + i * 20}px`,
+                                borderRadius: `${30 + i * 8}px`,
+                                background: `conic-gradient(from ${frame * (1 + i * 0.5)}deg, transparent, rgba(99, 102, 241, ${0.1 + breathingGlow * 0.08}), transparent)`,
+                                opacity: breathingGlow * (0.8 - i * 0.3),
+                                zIndex: -1 - i,
+                            }} />
+                        ))}
+                    </div>
+                </div>
+
+                {/* 底部特性描述 */}
+                <div style={{
+                    textAlign: 'center',
+                    opacity: interpolate(frame, [180, 240], [0, 1]),
+                    transform: `translateY(${interpolate(frame, [180, 240], [20, 0])}px)`
+                }}>
+                    <div style={{
+                        fontSize: '28px',
+                        color: '#475569',
+                        fontWeight: '400',
+                        lineHeight: '1.4',
+                        maxWidth: '600px',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
+                    }}>
+                        每一个细节都经过精心雕琢，<br />
+                        只为给您带来 <span style={{ 
+                            color: '#6366f1', 
+                            fontWeight: '600',
+                            textShadow: `0 0 ${15 + breathingGlow * 10}px rgba(99, 102, 241, 0.4)`
+                        }}>无与伦比</span> 的使用体验
+                    </div>
+                </div>
+            </AbsoluteFill>
+        </AbsoluteFill>
+    );
+};
+
+
+// --- 场景4：苹果风格跨平台演示 --- //
 const Scene4CrossPlatform: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
+    // 苹果风格的优雅动画
     const deviceAnimation = (delay: number) => spring({
         frame: frame - delay,
         fps,
-        config: { stiffness: 120, damping: 12, mass: 1.4 },
+        config: { stiffness: 80, damping: 18, mass: 1.2 },
     });
+    
+    // 苹果风格的文字动画
+    const textReveal = (delay: number) => interpolate(
+        frame - delay, 
+        [0, 30], 
+        [0, 1], 
+        { easing: Easing.bezier(0.4, 0, 0.2, 1) }
+    );
+    
+    // 产品光环效果
+    const haloIntensity = 0.6 + Math.sin(frame / 20) * 0.4;
 
     const getDeviceStyle = (delay: number, rotation: number, glowColor: string, scale: number): React.CSSProperties => {
         const progress = deviceAnimation(delay);
@@ -654,6 +965,40 @@ const Scene4CrossPlatform: React.FC = () => {
             background: 'linear-gradient(135deg, #0ea5e9, #312e81)',
             filter: `hue-rotate(${hueShift}deg)`
         }}>
+            {/* 苹果风格标题区域 */}
+            <div style={{
+                position: 'absolute',
+                top: '8%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                textAlign: 'center',
+                zIndex: 100
+            }}>
+                <div style={{
+                    color: '#ffffff',
+                    fontSize: '56px',
+                    fontWeight: '300',
+                    marginBottom: '10px',
+                    opacity: textReveal(0),
+                    textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                    letterSpacing: '0.05em',
+                    fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
+                }}>
+                    为每一个重要时刻而设计
+                </div>
+                <div style={{
+                    color: '#e8f4fd',
+                    fontSize: '38px',
+                    fontWeight: '600',
+                    opacity: textReveal(30),
+                    textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                    letterSpacing: '-0.01em',
+                    fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
+                }}>
+                    <span style={{ color: '#fbbf24' }}>无缝</span> · <span style={{ color: '#22d3ee' }}>同步</span> · <span style={{ color: '#4ade80' }}>高效</span>
+                </div>
+            </div>
+            
             <ParticleField count={34} color="rgba(165, 243, 252, 0.5)" opacity={0.3} speed={0.02} amplitude={22} />
             {/* 桌面设备 */}
             <div style={{ 
@@ -663,7 +1008,7 @@ const Scene4CrossPlatform: React.FC = () => {
                 width: '380px', 
                 height: '240px', 
                 borderRadius: '20px', 
-                fontSize: '85px',
+                fontSize: '160px',
                 background: 'linear-gradient(145deg, rgba(14, 165, 233, 0.4), rgba(59, 130, 246, 0.7))',
                 border: '4px solid rgba(255,255,255,0.25)',
             }}>
@@ -695,7 +1040,7 @@ const Scene4CrossPlatform: React.FC = () => {
                 width: '260px', 
                 height: '320px', 
                 borderRadius: '30px', 
-                fontSize: '76px',
+                fontSize: '120px',
                 background: 'linear-gradient(145deg, rgba(34, 197, 94, 0.4), rgba(74, 222, 128, 0.6))',
                 border: '4px solid rgba(255,255,255,0.25)',
             }}>
@@ -727,7 +1072,7 @@ const Scene4CrossPlatform: React.FC = () => {
                 width: '180px', 
                 height: '330px', 
                 borderRadius: '38px', 
-                fontSize: '70px',
+                fontSize: '120px',
                 background: 'linear-gradient(145deg, rgba(99, 102, 241, 0.4), rgba(139, 92, 246, 0.6))',
                 border: '4px solid rgba(255,255,255,0.25)',
             }}>
@@ -1036,58 +1381,106 @@ const Scene6CTA: React.FC = () => {
             }} />
 
             <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '45px' }}>
-                {/* 增强标题 */}
-                <div style={{ 
-                    fontSize: '42px', 
-                    color: '#fff', 
-                    opacity: interpolate(frame, [0, fps], [0, 1]), 
+                {/* 苹果风格结尾标题 */}
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '25px',
                     textAlign: 'center',
-                    maxWidth: '900px',
-                    lineHeight: '1.4',
-                    fontWeight: '600',
-                    textShadow: `
-                        0 4px 8px rgba(0,0,0,0.3),
-                        0 0 ${25 + sparkleIntensity * 20}px rgba(255,255,255,0.4)
-                    `,
-                    transform: `translateY(${titleWave}px)`,
-                    letterSpacing: '0.02em'
+                    opacity: interpolate(frame, [0, fps], [0, 1]),
+                    transform: `translateY(${titleWave}px)`
                 }}>
-                    由 <strong style={{
-                        background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        textShadow: `0 0 ${15 + sparkleIntensity * 12}px rgba(251, 191, 36, 0.6)`
-                    }}>AnixOps Studio</strong> 精心打造，<br />
-                    立即开启高效的极简任务管理之旅
+                    <div style={{ 
+                        fontSize: '38px', 
+                        color: '#e8f4fd', 
+                        fontWeight: '300',
+                        letterSpacing: '0.05em',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+                    }}>
+                        现在，是时候体验
+                    </div>
+                    
+                    <div style={{ 
+                        fontSize: '64px', 
+                        color: '#ffffff', 
+                        fontWeight: '700',
+                        textShadow: `
+                            0 4px 8px rgba(0,0,0,0.3),
+                            0 0 ${35 + sparkleIntensity * 25}px rgba(255,255,255,0.5)
+                        `,
+                        letterSpacing: '-0.02em',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
+                    }}>
+                        真正的 <span style={{
+                            background: 'linear-gradient(135deg, #fbbf24, #f59e0b, #fb923c)',
+                            backgroundClip: 'text',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            textShadow: `0 0 ${20 + sparkleIntensity * 15}px rgba(251, 191, 36, 0.7)`
+                        }}>生产力</span>
+                    </div>
+                    
+                    <div style={{
+                        fontSize: '28px',
+                        color: '#cbd5e1',
+                        fontWeight: '400',
+                        maxWidth: '800px',
+                        lineHeight: '1.4',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif',
+                        textShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                    }}>
+                        由 <strong style={{ color: '#fbbf24' }}>AnixOps Studio</strong> 匠心打造<br />
+                        专为追求卓越的您而设计
+                    </div>
                 </div>
 
-                {/* 增强CTA按钮 */}
-                <div style={{ position: 'relative' }}>
+                {/* 苹果风格CTA按钮 */}
+                <div style={{ 
+                    position: 'relative',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '20px'
+                }}>
                     <a href="https://todo.anixops.com/todo" target="_blank" rel="noopener noreferrer" style={{
                         display: 'inline-block',
-                        fontSize: '36px',
+                        fontSize: '32px',
                         color: '#ffffff',
-                        background: 'linear-gradient(135deg, #3b82f6, #1d4ed8, #1e40af)',
-                        padding: '28px 55px',
-                        borderRadius: '60px',
+                        background: 'linear-gradient(135deg, #3b82f6, #2563eb, #1d4ed8)',
+                        padding: '24px 60px',
+                        borderRadius: '50px',
                         cursor: 'pointer',
                         boxShadow: `
-                            0 25px 60px rgba(15, 23, 42, 0.5), 
-                            0 0 ${40 + buttonGlow * 50}px rgba(59, 130, 246, ${0.8 + buttonGlow * 0.4}),
-                            0 0 ${20 + buttonGlow * 30}px rgba(96, 165, 250, 0.6),
-                            inset 0 1px 0 rgba(255,255,255,0.2)
+                            0 20px 50px rgba(15, 23, 42, 0.4), 
+                            0 0 ${35 + buttonGlow * 40}px rgba(59, 130, 246, ${0.7 + buttonGlow * 0.3}),
+                            0 0 ${15 + buttonGlow * 25}px rgba(96, 165, 250, 0.5),
+                            inset 0 1px 0 rgba(255,255,255,0.25),
+                            inset 0 -1px 0 rgba(0,0,0,0.1)
                         `,
                         textDecoration: 'none',
                         transform: `scale(${pulseScale * buttonHover})`,
-                        letterSpacing: '0.1em',
-                        fontWeight: 'bold',
-                        border: '2px solid rgba(255,255,255,0.15)',
-                        textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                        transition: 'all 0.3s ease'
+                        letterSpacing: '0.02em',
+                        fontWeight: '600',
+                        border: '1px solid rgba(255,255,255,0.2)',
+                        textShadow: '0 1px 2px rgba(0,0,0,0.3)',
+                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
                     }}>
-                        🚀 立即访问
+                        立即体验
                     </a>
+                    
+                    {/* 辅助说明文字 */}
+                    <div style={{
+                        fontSize: '16px',
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        fontWeight: '400',
+                        textAlign: 'center',
+                        fontFamily: 'SF Pro Display, -apple-system, system-ui, sans-serif'
+                    }}>
+                        免费使用，无需注册
+                    </div>
                     
                     {/* 按钮光环效果 */}
                     {[...Array(3)].map((_, i) => (
@@ -1231,7 +1624,11 @@ export const TodoListPromo: React.FC = () => {
     const scene3Start = scene2Start + scene2Duration;
         const scene3Duration = secondsToFrames(12);
 
-    const scene4Start = scene3Start + scene3Duration;
+    // 苹果风格产品演示场景
+    const appleSceneStart = scene3Start + scene3Duration;
+        const appleSceneDuration = secondsToFrames(8);
+
+    const scene4Start = appleSceneStart + appleSceneDuration;
         const scene4Duration = secondsToFrames(7);
 
     const scene5Start = scene4Start + scene4Duration;
@@ -1252,6 +1649,10 @@ export const TodoListPromo: React.FC = () => {
       
       <Sequence from={scene3Start} durationInFrames={scene3Duration}>
         <Scene3Features />
+      </Sequence>
+      
+      <Sequence from={appleSceneStart} durationInFrames={appleSceneDuration}>
+        <AppleStyleProductDemo />
       </Sequence>
       
       <Sequence from={scene4Start} durationInFrames={scene4Duration}>
