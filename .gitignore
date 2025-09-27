@@ -1,0 +1,181 @@
+# Node.js 依赖
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 构建输出
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# 环境变量
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# 日志文件
+logs/
+*.log
+
+# Runtime 数据
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+.nyc_output/
+
+# node-waf 配置
+.lock-wscript
+
+# 依赖目录
+node_modules/
+jspm_packages/
+
+# TypeScript 缓存
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL 历史
+.node_repl_history
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+.env.production
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# Temporary folders
+tmp/
+temp/
+
+# Remotion 输出目录
+output/
+renders/
+*.mp4
+*.mov
+*.webm
+*.gif
+
+# 媒体资源缓存
+.remotion/
+
+# IDE 文件
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# OS 生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 测试相关
+coverage/
+.nyc_output/
+junit.xml
+
+# 性能和监控文件
+*.cpuprofile
+*.heapsnapshot
+*.prof
+
+# 文档构建
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+# 部署相关
+docker-compose.override.yml
+.dockerignore
+
+# 临时文件
+*.tmp
+*.temp
+
+# 锁定文件 (保留 package-lock.json)
+# yarn.lock
+
+# 用户上传的内容
+uploads/
+user-content/
+
+# 开发工具
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 测试截图和视频
+test-results/
+playwright-report/
+screenshots/
+videos/
+
+# 性能分析文件
+profile/
+benchmark/
+
+# 本地数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# Redis 持久化文件
+dump.rdb
+appendonly.aof
+
+# 证书文件
+*.pem
+*.key
+*.crt

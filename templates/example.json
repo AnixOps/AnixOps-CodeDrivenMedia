@@ -1,0 +1,64 @@
+{
+  "name": "示例项目",
+  "description": "这是一个使用配置生成视频的示例项目",
+  "version": "1.0.0",
+  "videos": [
+    {
+      "id": "Welcome",
+      "name": "欢迎视频",
+      "description": "简单的欢迎信息",
+      "duration": 10,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "scenes": [
+        {
+          "id": "main",
+          "type": "intro",
+          "duration": 10,
+          "startTime": 0,
+          "elements": [
+            {
+              "id": "title",
+              "type": "text",
+              "content": {
+                "text": "欢迎使用视频生成器"
+              },
+              "position": {
+                "x": "50%",
+                "y": "50%"
+              },
+              "animation": {
+                "type": "fadeIn",
+                "duration": 2
+              },
+              "timing": {
+                "start": 1,
+                "duration": 8
+              },
+              "style": {
+                "fontSize": "48px",
+                "color": "#ffffff",
+                "textAlign": "center"
+              }
+            }
+          ]
+        }
+      ],
+      "theme": {
+        "primary": "#007acc",
+        "secondary": "#ff6b6b",
+        "background": "#1a1a1a",
+        "text": "#ffffff"
+      }
+    }
+  ],
+  "globalTheme": {
+    "primary": "#007acc",
+    "secondary": "#ff6b6b",
+    "background": "#1a1a1a",
+    "text": "#ffffff",
+    "fontFamily": "Arial, sans-serif"
+  },
+  "requirements": []
+}

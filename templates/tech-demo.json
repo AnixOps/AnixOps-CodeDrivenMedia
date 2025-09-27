@@ -1,0 +1,165 @@
+{
+  "name": "技术演示视频",
+  "description": "展示代码和技术实现的演示视频",
+  "version": "1.0.0",
+  "videos": [
+    {
+      "id": "TechDemo",
+      "name": "技术演示",
+      "description": "15秒技术实现展示",
+      "duration": 15,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "scenes": [
+        {
+          "id": "code_demo",
+          "type": "demo",
+          "duration": 15,
+          "startTime": 0,
+          "elements": [
+            {
+              "id": "title",
+              "type": "text",
+              "content": {
+                "text": "代码驱动的视频生成"
+              },
+              "position": {
+                "x": "50%",
+                "y": "10%"
+              },
+              "animation": {
+                "type": "slideIn",
+                "duration": 1,
+                "delay": 0
+              },
+              "timing": {
+                "start": 0,
+                "duration": 15
+              },
+              "style": {
+                "fontSize": "32px",
+                "color": "#ffffff",
+                "textAlign": "center",
+                "fontWeight": "bold"
+              }
+            },
+            {
+              "id": "code_block",
+              "type": "code",
+              "content": {
+                "code": "const video = {\n  duration: 30,\n  scenes: [\n    {\n      type: 'intro',\n      elements: ['logo', 'title']\n    }\n  ]\n};\n\nrenderVideo(video);",
+                "language": "javascript"
+              },
+              "position": {
+                "x": "10%",
+                "y": "25%",
+                "width": "80%",
+                "height": "50%"
+              },
+              "animation": {
+                "type": "typewriter",
+                "duration": 10,
+                "delay": 2
+              },
+              "timing": {
+                "start": 2,
+                "duration": 13
+              },
+              "style": {
+                "backgroundColor": "#1e1e1e",
+                "borderRadius": "8px",
+                "padding": "20px"
+              }
+            },
+            {
+              "id": "arrow",
+              "type": "shape",
+              "content": {
+                "shape": "arrow"
+              },
+              "position": {
+                "x": "45%",
+                "y": "80%",
+                "width": "100px",
+                "height": "50px"
+              },
+              "animation": {
+                "type": "bounce",
+                "duration": 0.5,
+                "delay": 12
+              },
+              "timing": {
+                "start": 12,
+                "duration": 3
+              },
+              "style": {
+                "backgroundColor": "#f39c12"
+              }
+            },
+            {
+              "id": "result_text",
+              "type": "text",
+              "content": {
+                "text": "自动生成视频！"
+              },
+              "position": {
+                "x": "50%",
+                "y": "90%"
+              },
+              "animation": {
+                "type": "fadeIn",
+                "duration": 1,
+                "delay": 13
+              },
+              "timing": {
+                "start": 13,
+                "duration": 2
+              },
+              "style": {
+                "fontSize": "24px",
+                "color": "#2ecc71",
+                "textAlign": "center",
+                "fontWeight": "bold"
+              }
+            }
+          ],
+          "background": {
+            "type": "gradient",
+            "value": "linear-gradient(135deg, #0f0f23 0%, #2d1b69 100%)"
+          }
+        }
+      ],
+      "theme": {
+        "primary": "#007acc",
+        "secondary": "#f39c12",
+        "accent": "#2ecc71",
+        "background": "#0f0f23",
+        "text": "#ffffff"
+      }
+    }
+  ],
+  "globalTheme": {
+    "primary": "#007acc",
+    "secondary": "#f39c12",
+    "accent": "#2ecc71",
+    "background": "#0f0f23",
+    "text": "#ffffff",
+    "fontFamily": "Monaco, 'Cascadia Code', monospace"
+  },
+  "requirements": [
+    {
+      "file": "src/components/atoms/AnimatedText.tsx",
+      "description": "需要支持打字机效果的文本组件"
+    },
+    {
+      "file": "src/components/elements/CodeBlock.tsx",
+      "description": "需要代码高亮显示组件",
+      "dependencies": ["prismjs", "react-syntax-highlighter"]
+    },
+    {
+      "file": "src/components/atoms/Arrow.tsx",
+      "description": "需要箭头形状组件"
+    }
+  ]
+}
