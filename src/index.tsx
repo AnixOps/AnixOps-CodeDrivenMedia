@@ -4,6 +4,9 @@ import BrandAnimation from './compositions/BrandAnimation';
 import FeatureDemo from './compositions/Waiting-1';
 import { TodoListPromo } from './compositions/TodoListPromo';
 
+// 导入中文字体支持
+import './styles/fonts.css';
+
 // 视频配置
 export const VIDEO_CONFIG = {
   width: 1920,

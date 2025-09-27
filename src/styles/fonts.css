@@ -1,0 +1,103 @@
+/**
+ * 中文字体配置文件
+ * 为 Remotion 视频渲染提供中文字体支持
+ */
+
+/* 导入系统中文字体 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap');
+
+/* 定义中文字体堆栈 */
+:root {
+  /* 简体中文字体 */
+  --font-chinese-simplified: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', 'WenQuanYi Zen Hei', '文泉驿正黑', 'WenQuanYi Micro Hei', '文泉驿微米黑', sans-serif;
+  
+  /* 繁体中文字体 */
+  --font-chinese-traditional: 'Noto Sans TC', 'PingFang TC', 'Hiragino Sans CNS', 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+  
+  /* 通用中文字体（包含简繁） */
+  --font-chinese-universal: 'Noto Sans SC', 'Noto Sans TC', 'PingFang SC', 'PingFang TC', 'Hiragino Sans GB', 'Hiragino Sans CNS', 'Microsoft YaHei', '微软雅黑', 'Microsoft JhengHei', '微軟正黑體', 'WenQuanYi Zen Hei', '文泉驿正黑', 'WenQuanYi Micro Hei', '文泉驿微米黑', sans-serif;
+  
+  /* 等宽中文字体 */
+  --font-chinese-mono: 'Noto Sans Mono CJK SC', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Source Code Pro', 'Consolas', '等距更纱黑体', 'Sarasa Mono SC', monospace;
+}
+
+/* 全局字体设置 */
+* {
+  font-family: var(--font-chinese-universal);
+}
+
+/* 针对不同元素的字体优化 */
+body, html {
+  font-family: var(--font-chinese-universal);
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 标题字体 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-chinese-universal);
+  font-weight: 600;
+}
+
+/* 正文字体 */
+p, span, div {
+  font-family: var(--font-chinese-universal);
+  font-weight: 400;
+}
+
+/* 代码字体 */
+code, pre, .font-mono {
+  font-family: var(--font-chinese-mono);
+}
+
+/* 强调文本 */
+strong, b {
+  font-weight: 700;
+}
+
+/* 斜体文本（中文通常不使用斜体，保持正常） */
+em, i {
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* 针对 Remotion 视频渲染的字体优化 */
+.remotion-video-container * {
+  font-family: var(--font-chinese-universal) !important;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 确保中文字符正常显示 */
+.chinese-text {
+  font-family: var(--font-chinese-universal);
+  font-feature-settings: 'kern' 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* 响应式字体大小 */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 769px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* 打印媒体字体优化 */
+@media print {
+  * {
+    font-family: var(--font-chinese-simplified);
+  }
+}
+
+/* 字体加载优化 - 移除无效的 @font-face 规则，因为我们使用 Google Fonts */
+/* Google Fonts 会自动处理字体加载优化 */

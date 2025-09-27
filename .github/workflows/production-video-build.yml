@@ -12,6 +12,12 @@ jobs:
     env:
       NODE_ENV: production
       REMOTION_CONCURRENCY: 2
+      # 中文字体和语言环境支持
+      LANG: zh_CN.UTF-8
+      LC_ALL: zh_CN.UTF-8
+      LANGUAGE: zh_CN:zh:en_US:en
+      # Puppeteer 中文字体支持
+      PUPPETEER_ARGS: "--font-render-hinting=none --disable-font-subpixel-positioning --lang=zh-CN"
 
     steps:
       - name: Check out repository
@@ -45,9 +51,24 @@ jobs:
             libxrandr2 \
             libpango-1.0-0 \
             libpangocairo-1.0-0 \
-            fonts-noto-color-emoji
+            fonts-noto-color-emoji \
+            fonts-noto-cjk \
+            fonts-noto-cjk-extra \
+            fonts-wqy-zenhei \
+            fonts-wqy-microhei \
+            language-pack-zh-hans \
+            language-pack-zh-hant
           sudo apt-get install -y --no-install-recommends libasound2 || \
             sudo apt-get install -y --no-install-recommends libasound2t64
+
+      - name: Configure Chinese font support
+        run: |
+          # 更新字体缓存
+          sudo fc-cache -fv
+          # 设置中文语言环境
+          sudo locale-gen zh_CN.UTF-8 zh_TW.UTF-8
+          # 验证中文字体是否正确安装
+          fc-list :lang=zh | head -10 || echo "No Chinese fonts found, but continuing..."
 
       - name: Install dependencies
         run: npm ci --include=dev
@@ -55,9 +76,18 @@ jobs:
       - name: Render video compositions
         run: |
           mkdir -p output/github
-          npx remotion render src/index.tsx BrandAnimation output/github/BrandAnimation.mp4 --codec=h264 --crf=18 --overwrite
-          npx remotion render src/index.tsx Wainting-1 output/github/Wainting-1.mp4 --codec=h264 --crf=18 --overwrite
-          npx remotion render src/index.tsx TodoListPromo output/github/TodoListPromo.mp4 --codec=h264 --crf=18 --overwrite
+          # 设置中文字体渲染参数
+          export PUPPETEER_ARGS="--font-render-hinting=none --disable-font-subpixel-positioning --lang=zh-CN --disable-web-security --disable-features=VizDisplayCompositor"
+          # 渲染视频组合，支持中文字体
+          npx remotion render src/index.tsx BrandAnimation output/github/BrandAnimation.mp4 \
+            --codec=h264 --crf=18 --overwrite \
+            --browser-args="--font-render-hinting=none --disable-font-subpixel-positioning --lang=zh-CN"
+          npx remotion render src/index.tsx Wainting-1 output/github/Wainting-1.mp4 \
+            --codec=h264 --crf=18 --overwrite \
+            --browser-args="--font-render-hinting=none --disable-font-subpixel-positioning --lang=zh-CN"
+          npx remotion render src/index.tsx TodoListPromo output/github/TodoListPromo.mp4 \
+            --codec=h264 --crf=18 --overwrite \
+            --browser-args="--font-render-hinting=none --disable-font-subpixel-positioning --lang=zh-CN"
 
       - name: Upload rendered videos
         uses: actions/upload-artifact@v4
