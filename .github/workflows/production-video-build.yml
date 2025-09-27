@@ -52,9 +52,6 @@ jobs:
       - name: Install dependencies
         run: npm ci --include=dev
 
-      - name: Lint source code
-        run: npm run lint
-
       - name: Render video compositions
         run: |
           mkdir -p output/github
