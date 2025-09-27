@@ -28,7 +28,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             ffmpeg \
-            libasound2 \
             libatk-bridge2.0-0 \
             libatk1.0-0 \
             libcups2 \
@@ -47,6 +46,8 @@ jobs:
             libpango-1.0-0 \
             libpangocairo-1.0-0 \
             fonts-noto-color-emoji
+          sudo apt-get install -y --no-install-recommends libasound2 || \
+            sudo apt-get install -y --no-install-recommends libasound2t64
 
       - name: Install dependencies
         run: npm ci
